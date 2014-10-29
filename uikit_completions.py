@@ -78,7 +78,7 @@ class UIkitCompletions(sublime_plugin.EventListener):
             search_start = max(0, pt - SEARCH_LIMIT - len(prefix))
             line = view.substr(sublime.Region(search_start, pt))
             parts = line.split('=')
-            if len(parts) > 2 and parts[-2].strip().endswith("class"):
+            if len(parts) >= 2 and parts[-2].strip().endswith("class"):
                 return self.class_completions
             else:
                 return []
